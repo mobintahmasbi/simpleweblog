@@ -59,19 +59,45 @@ export class UsersService {
     }
   }
 
-  findAll() {
-    return `This action returns all users`;
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    try {
+      const { password } = updateUserDto;
+    const user = await this.userDB.findOneBy({
+      id: id,
+    });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+    if (password) {
+      updateUserDto.password = await generatedHashedPassword(updateUserDto.password);
+    }
+    const userUpdate = await this.userDB.update({ id: id }, updateUserDto);
+    return {
+      success: true,
+      message: 'user successfully updated',
+      user: userUpdate,
+    }
+    } catch (error) {
+      // error exception nestjs
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
-
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(id: number) {
+    try {
+      const user = await this.userDB.findOneBy({
+        id: id,
+      });
+      if (!user) {
+        throw new NotFoundException('User not found');
+      }
+      const userDelete = await this.userDB.delete({ id: id });
+      return {
+        success: true,
+        message: 'user successfully deleted',
+      }
+    } catch (error) {
+      // error exception nestjs
+    }
   }
 }
+
