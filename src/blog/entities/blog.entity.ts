@@ -1,5 +1,6 @@
 import { IsString } from "class-validator";
 import { IsBoolean, IsDate, IsNumber } from "class-validator/types/decorator/decorators";
+import { CommentEntity } from "src/comment/entities/comment.entity";
 import { User } from "src/users/entities/user.entity";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn , OneToMany, ManyToOne} from "typeorm";
 
@@ -54,4 +55,7 @@ export class BlogEntity {
 
     @ManyToOne( () => User , user => user.blogs)
     user : User
+
+    @OneToMany(() => CommentEntity , blog => blog.commentss)
+    blogss : CommentEntity[];
 }

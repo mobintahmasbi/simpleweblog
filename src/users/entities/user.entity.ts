@@ -1,5 +1,6 @@
 import { IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import { BlogEntity } from 'src/blog/entities/blog.entity';
+import { CommentEntity } from 'src/comment/entities/comment.entity';
 import {
   Column,
   CreateDateColumn,
@@ -67,5 +68,9 @@ export class User {
 
   @OneToMany( () => BlogEntity , blog => blog.user)
   blogs : BlogEntity[];
+
+
+  @OneToMany( () => CommentEntity , user => user.comments )
+    users: CommentEntity[];
 
 }
