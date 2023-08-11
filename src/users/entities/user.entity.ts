@@ -1,4 +1,5 @@
 import { IsDate, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { BlogEntity } from 'src/blog/entities/blog.entity';
 import {
   Column,
   CreateDateColumn,
@@ -6,6 +7,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToMany
 } from 'typeorm';
 
 @Entity({ name: 'users' })
@@ -57,4 +59,8 @@ export class User {
   @IsOptional()
   @IsDate()
   deletedAt: Date;
+
+  @OneToMany( () => BlogEntity , blog => blog.user)
+  blogs : BlogEntity[];
+
 }
