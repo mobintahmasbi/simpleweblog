@@ -1,4 +1,4 @@
-import { IsDate, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import {
   Column,
   CreateDateColumn,
@@ -23,6 +23,11 @@ export class User {
   @IsNotEmpty()
   @IsString()
   family: string;
+
+  @Column()
+  @IsNotEmpty()
+  @IsNumber()
+  age: number;
 
   @Column()
   @IsNotEmpty()
