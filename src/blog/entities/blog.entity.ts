@@ -1,5 +1,5 @@
 import { IsString } from "class-validator";
-import { IsBoolean, IsDate, IsNumber } from "class-validator/types/decorator/decorators";
+import { IsBoolean, IsDate, IsNumber ,IsDateString} from "class-validator";
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('blog')
@@ -22,7 +22,7 @@ export class BlogEntity {
     content : string;
 
     @CreateDateColumn()
-    @IsDate()
+    @IsDateString()
     @Column()
     releaseDate : Date ;
 

@@ -38,13 +38,11 @@ export class User {
   @IsString()
   cellphone: string;
 
-  @Column({ default: new Date() })
-  @IsNotEmpty()
-  @IsDate()
+  @Column()
   birthDate: Date;
 
-  @Column({ default: true })
-  @IsNotEmpty()
+
+  @Column({ default: true})
   active: boolean;
 
   @CreateDateColumn({ default: new Date() })

@@ -14,6 +14,10 @@ export class CategoryService {
         return this.categoryRepository.create(createCategorydto)
     }
 
+    find(){
+        return this.categoryRepository.find()
+    }
+
     findOne(findCategoryDTO: FindCategoryDTO){
         return this.categoryRepository.findOneBy(findCategoryDTO)
     }
