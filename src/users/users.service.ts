@@ -1,4 +1,4 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException , InternalServerErrorException} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { compareHashedPassword, generatedHashedPassword } from './utilities/passwordManager';
@@ -30,18 +30,24 @@ export class UsersService {
         message: `User with name ${newUser.name} successfully registered`
       }
     } catch (error) {
-      // user not can create 
+      console.log(error);
+      
+      throw new InternalServerErrorException() 
     }
   }
 
   async login(cellphone: string, password: string) {
     try {
-      const user = await this.userDB.findOneBy({ cellphone: cellphone });
+      console.log(cellphone);
+      
+      const user = await this.userDB.findOneBy({ cellphone });
+      console.log(user);
+      
       if (!user) {
         throw new NotFoundException('User with cellphone or password not Found!');
       }
       const token = await this.authService.generateToken(user)
-      const passwordHash = await compareHashedPassword(password, user.password);
+      const passwordHash = await compareHashedPassword(password, user[0].password);
       try {
         if (passwordHash) {
           return {
@@ -55,7 +61,9 @@ export class UsersService {
         throw new NotFoundException('User with cellphone or password not Found!');
       }
     } catch (error) {
-      // Exception Error nestjs
+      console.log(error);
+      
+      throw new InternalServerErrorException() 
     }
   }
 

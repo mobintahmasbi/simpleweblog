@@ -44,7 +44,7 @@ export class User {
   @IsDate()
   birthDate: Date;
 
-  @Column()
+  @Column({ default: true})
   @IsNotEmpty()
   active: boolean;
 

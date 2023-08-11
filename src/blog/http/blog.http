@@ -1,0 +1,8 @@
+POST   http://localhost:3000/blog
+Content-Type: application/json
+
+{
+    "title": "create a blog",
+    "subtitle": "lorem ipsum dolor sit amet",
+    "content": "lorem ipsum dolor sit amet"
+}
