@@ -1,6 +1,7 @@
 import { IsString } from "class-validator";
 import { IsBoolean, IsDate, IsNumber } from "class-validator/types/decorator/decorators";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { User } from "src/users/entities/user.entity";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn , OneToMany, ManyToOne} from "typeorm";
 
 @Entity('blog')
 export class BlogEntity {
@@ -50,4 +51,7 @@ export class BlogEntity {
 
     @DeleteDateColumn()
     deleteAt : Date;
+
+    @ManyToOne( () => User , user => user.blogs)
+    user : User
 }
