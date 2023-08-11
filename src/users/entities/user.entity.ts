@@ -2,7 +2,6 @@ import { IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-valida
 import {
   Column,
   CreateDateColumn,
-  DeleteDateColumn,
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -57,9 +56,4 @@ export class User {
   @IsOptional()
   @IsDate()
   updatedAt: Date;
-
-  @DeleteDateColumn({ default: new Date() })
-  @IsOptional()
-  @IsDate()
-  deletedAt: Date;
 }
