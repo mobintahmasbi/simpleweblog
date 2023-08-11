@@ -18,7 +18,7 @@ export class BlogService {
    ){}
 
   create(createBlogDto : CreateBlogDto) {
-    return this.blogRepository.save(createBlogDto)
+    return this.blogRepository.create(createBlogDto)
   }
 
    findAll()  {

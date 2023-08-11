@@ -1,4 +1,4 @@
-import { OmitType, PartialType } from "@nestjs/mapped-types";
+import { PickType, OmitType } from "@nestjs/mapped-types";
 import { BlogEntity } from "../entities/blog.entity";
 
-export class CreateBlogDto extends OmitType(BlogEntity , ["id" , "title" , "subtitle", "content", ]){}
+export class CreateBlogDto extends PickType(BlogEntity , ["id" , "title" , "subtitle", "content"] as const){}

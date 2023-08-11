@@ -17,12 +17,12 @@ export class UsersController {
     return this.usersService.login(loginUser.cellphone, loginUser.password);
   }
 
-  @Patch(':id')
+  @Patch('/updateUser/:id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(+id, updateUserDto);
   }
 
-  @Delete(':id')
+  @Delete('/deleteUser/:id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }

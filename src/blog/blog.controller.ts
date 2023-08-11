@@ -21,7 +21,7 @@ export class BlogController {
    
   }
 
-  @Get()
+  @Get('/allBlog')
   findAll() {
 
     try {
@@ -32,7 +32,7 @@ export class BlogController {
     
   }
 
-  @Get(':id')
+  @Get('/oneBlog/:id')
   findOne(@Param('id') id: string) {
 
     try {
