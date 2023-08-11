@@ -6,8 +6,8 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedCol
 export class BlogEntity {
 
     @PrimaryGeneratedColumn()
-    @IsString()
-    id : string;
+    @IsNumber()
+    id : number;
 
 
     @IsString()
