@@ -17,3 +17,16 @@ Content-Type: application/json
     "cellphone": "09153139046",
     "password": "654987"
 }
+
+###
+PATCH http://localhost:3001/users/8
+Content-Type: application/json
+
+{
+    "name": "ashkan"
+}
+
+###
+
+DELETE http://localhost:3001/users/9
+Content-Type: application/json

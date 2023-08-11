@@ -19,12 +19,12 @@ export class UsersController {
     return this.usersService.login(loginUser.cellphone, loginUser.password);
   }
 
-  @Patch('/updateUser/:id')
+  @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(+id, updateUserDto);
   }
 
-  @Delete('/deleteUser/:id')
+  @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }

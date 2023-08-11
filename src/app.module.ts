@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { BlogModule } from './blog/blog.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [AuthModule, CategoryModule, TypeOrmModule.forRoot({
@@ -20,7 +21,8 @@ import { BlogModule } from './blog/blog.module';
       synchronize: true,
   }),
   UsersModule,
-  BlogModule
+  BlogModule,
+  CommentModule
 ],
   controllers: [AppController],
   providers: [AppService],
