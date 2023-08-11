@@ -2,12 +2,12 @@ POST  http://localhost:3001/users/register
 Content-Type: application/json
 
 {
-    "name": "asghar",
-    "family": "sahabi",
-    "password": "654987",
-    "cellphone": "09153139046",
-    "age": "35",
-    "birthDate": "2014-07-09T00:00:00"
+    "name": "hassan",
+    "family": "drakhshan",
+    "password": "65649879",
+    "cellphone": "09921644669",
+    "age": 35,
+    "birthDate": "2014-08-09T00:00:00"
 }
 ###
 POST  http://localhost:3001/users/login

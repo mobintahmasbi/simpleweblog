@@ -1,5 +1,5 @@
 import { ConflictException, Injectable, NotFoundException , InternalServerErrorException} from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDTO } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { compareHashedPassword, generatedHashedPassword } from './utilities/passwordManager';
 import { Repository } from 'typeorm';
@@ -11,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
 export class UsersService {
   constructor(@InjectRepository(User) private readonly userDB: Repository<User>,
   private readonly authService: AuthService){}
-  async register(createUserDto: CreateUserDto) {
+  async register(createUserDto: CreateUserDTO) {
     try {
       //hashed password
       createUserDto.password = await generatedHashedPassword(createUserDto.password);

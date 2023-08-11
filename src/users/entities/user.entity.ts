@@ -1,4 +1,4 @@
-import { IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsDate, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 import {
   Column,
   CreateDateColumn,
@@ -10,7 +10,6 @@ import {
 @Entity({ name: 'users' })
 export class User {
   @PrimaryGeneratedColumn()
-  @IsNotEmpty()
   id: number;
 
   @Column()
@@ -39,6 +38,7 @@ export class User {
   cellphone: string;
 
   @Column()
+  @IsDateString()
   birthDate: Date;
 
   @Column({ default: true})
