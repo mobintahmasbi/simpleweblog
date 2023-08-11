@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { CategoryModule } from './category/category.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [AuthModule, CategoryModule, TypeOrmModule.forRoot({
@@ -15,7 +16,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'simpleweblog',
       autoLoadEntities: true,
       synchronize: true,
-  })],
+  }),
+  ConfigModule.forRoot(),
+],
   controllers: [AppController],
   providers: [AppService],
 })
