@@ -41,13 +41,16 @@ export class UsersService {
       console.log(cellphone);
       
       const user = await this.userDB.findOneBy({ cellphone });
+
       console.log(user);
       
       if (!user) {
         throw new NotFoundException('User with cellphone or password not Found!');
       }
       const token = await this.authService.generateToken(user)
-      const passwordHash = await compareHashedPassword(password, user[0].password);
+      console.log(token);
+      
+      const passwordHash = await compareHashedPassword(password, user.password);
       try {
         if (passwordHash) {
           return {

@@ -5,6 +5,8 @@ import { AuthModule } from './auth/auth.module';
 import { CategoryModule } from './category/category.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { BlogModule } from './blog/blog.module';
 
 @Module({
   imports: [AuthModule, CategoryModule, TypeOrmModule.forRoot({
@@ -17,6 +19,8 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadEntities: true,
       synchronize: true,
   }),
+  UsersModule,
+  BlogModule
 ],
   controllers: [AppController],
   providers: [AppService],

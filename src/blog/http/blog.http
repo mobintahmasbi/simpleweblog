@@ -1,6 +1,6 @@
 POST   http://localhost:3000/blog
 Content-Type: application/json
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFzZ2hhciIsImZhbWlseSI6InNhaGFiaSIsImFnZSI6MzUsInBhc3N3b3JkIjoiJDJiJDEwJFp5Mi9IOXI1V1J4dFM3M05xYWtqRmVaNFZJVkluREM3c0x0RGpyeVFNLnhlbGVLYVYxMEw2IiwiY2VsbHBob25lIjoiMDkxNTMxMzkwNDYiLCJiaXJ0aERhdGUiOiIyMDE0LTA3LTA4VDE5OjMwOjAwLjAwMFoiLCJhY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjMtMDgtMTFUMDc6MTM6MDkuNjg0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDgtMTFUMDc6MTM6MDkuNjg0WiIsImlhdCI6MTY5MTc1MDkwOH0.LAVJ3keQc638B1fk0_0SCJqz9q2NxYqumZPUUpfBuLE
 {
     "title": "create a blog",
     "subtitle": "lorem ipsum dolor sit amet",

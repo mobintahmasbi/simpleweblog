@@ -1,19 +1,19 @@
-POST  http://localhost:3000/users/register 
+POST  http://localhost:3001/users/register 
 Content-Type: application/json
 
 {
-    "name": "mobin",
-    "family": "tahmasbi",
-    "password": "1380",
-    "cellphone": "09035083850",
-    "age": "21",
-    "birthDate": "2015-12-12T00:00:00"
+    "name": "asghar",
+    "family": "sahabi",
+    "password": "654987",
+    "cellphone": "09153139046",
+    "age": "35",
+    "birthDate": "2014-07-09T00:00:00"
 }
 ###
-POST  http://localhost:3000/users/login
+POST  http://localhost:3001/users/login
 Content-Type: application/json
 
 {
-    "cellphone": "09035083850",
-    "password": "1380"
+    "cellphone": "09153139046",
+    "password": "654987"
 }

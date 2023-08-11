@@ -39,13 +39,10 @@ export class User {
   @IsString()
   cellphone: string;
 
-  @Column({ default: new Date() })
-  @IsNotEmpty()
-  @IsDate()
+  @Column()
   birthDate: Date;
 
   @Column({ default: true})
-  @IsNotEmpty()
   active: boolean;
 
   @CreateDateColumn({ default: new Date() })
@@ -57,9 +54,4 @@ export class User {
   @IsOptional()
   @IsDate()
   updatedAt: Date;
-
-  @DeleteDateColumn({ default: new Date() })
-  @IsOptional()
-  @IsDate()
-  deletedAt: Date;
 }

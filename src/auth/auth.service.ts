@@ -8,7 +8,7 @@ export class AuthService {
     async generateToken(targetObject: any){
         console.log(targetObject);
         
-        const token = await this.jwtService.signAsync(targetObject)
+        const token = await this.jwtService.signAsync({...targetObject})
         return token
     }
 
