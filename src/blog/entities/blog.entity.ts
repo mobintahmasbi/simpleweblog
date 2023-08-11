@@ -9,7 +9,6 @@ export class BlogEntity {
     @IsNumber()
     id : number;
 
-
     @IsString()
     @Column()
     title : string ;
@@ -47,7 +46,7 @@ export class BlogEntity {
     createdAt : Date;
 
     @UpdateDateColumn()
-    updateAt : Date;
+    updateAt: Date;
 
     @DeleteDateColumn()
     deleteAt : Date;
