@@ -1,45 +1,47 @@
 import { IsString } from "class-validator";
 import { IsBoolean, IsDate, IsNumber ,IsDateString} from "class-validator";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { User } from "src/users/entities/user.entity";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('blog')
 export class BlogEntity {
 
     @PrimaryGeneratedColumn()
-    @IsNumber()
     id : number;
-
-    @IsString()
+    
     @Column()
+    @IsString()
     title : string ;
 
-    @IsString()
     @Column()
+    @IsString()
     subtitle : string;
 
-    @IsString()
     @Column()
+    @IsString()
     content : string;
 
     @CreateDateColumn()
     @IsDateString()
-    @Column()
     releaseDate : Date ;
 
-    @IsNumber()
     @Column()
+    @IsNumber()
     minAge : number;
 
-    @IsNumber()
     @Column()
+    @IsNumber()
     like : number ;
 
-    @IsNumber()
     @Column()
+    @IsNumber()
     dislike : number;
 
-    @IsBoolean()
+    @ManyToOne(() => User, (user) => user.blogs)
+    user: User;
+    
     @Column()
+    @IsBoolean()
     active : boolean;
 
     @CreateDateColumn()
@@ -47,7 +49,4 @@ export class BlogEntity {
 
     @UpdateDateColumn()
     updateAt: Date;
-
-    @DeleteDateColumn()
-    deleteAt : Date;
 }

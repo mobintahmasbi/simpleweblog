@@ -1,8 +1,10 @@
 import { IsDate, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import { BlogEntity } from 'src/blog/entities/blog.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -36,6 +38,9 @@ export class User {
   @IsNotEmpty()
   @IsString()
   cellphone: string;
+
+  @OneToMany(() => BlogEntity, (blog) => blog.user)
+  blogs: BlogEntity[];
 
   @Column()
   @IsDateString()
