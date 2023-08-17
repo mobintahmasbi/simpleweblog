@@ -18,7 +18,15 @@ export class BlogService {
    ){}
 
   create(createBlogDto : CreateBlogDto) {
-    return this.blogRepository.create(createBlogDto)
+    const blogObj = {
+      ...createBlogDto,
+      active: true,
+      like: 0,
+      dislike: 0
+    }
+    const newblog = this.blogRepository.create(blogObj)
+    
+    return this.blogRepository.save(newblog)
   }
 
    findAll()  {

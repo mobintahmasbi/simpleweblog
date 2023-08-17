@@ -12,9 +12,9 @@ export class AuthService {
     return token;
   }
 
-  validateToken(token: string) {
+  async validateToken(token: string) {
     try {
-      const verification = this.jwtService.verify(token);
+      const verification = await this.jwtService.verify(token);
       return verification;
     } catch (err) {
       throw new UnauthorizedException('Invalid token');

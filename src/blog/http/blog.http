@@ -7,3 +7,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFzZ2hh
     "subtitle": "lorem ipsum dolor sit amet",
     "content": "lorem ipsum dolor sit amet"
 }
+
+###
+
+PATCH http://localhost:3001/blog/

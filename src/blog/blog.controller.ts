@@ -7,12 +7,15 @@ import {
   Param,
   Delete,
   UseGuards,
+  UseInterceptors,
+  Request,
 } from '@nestjs/common';
 import { InternalServerErrorException } from '@nestjs/common/exceptions';
 import { BlogService } from './blog.service';
 import { CreateBlogDto } from './dto/create-blog.dto';
 import { UpdateBlogDto } from './dto/update-blog.dto';
 import { UserloginGuard } from './userlogin/userlogin.guard';
+import { TokenInterceptor } from './tokenDecoder/tokenDecoder.interceptor';
 
 @Controller('blog')
 export class BlogController {
@@ -48,8 +51,12 @@ export class BlogController {
 
   @Patch(':id')
   @UseGuards(UserloginGuard)
-  update(@Param('id') id: string, @Body() updateBlogDto: UpdateBlogDto) {
+  @UseInterceptors(TokenInterceptor)
+  update(@Param('id') id: string, @Body() updateBlogDto: UpdateBlogDto,
+          @Request() request: Request) {
     try {
+      console.log(request.body);
+      
       return this.blogService.update(+id, updateBlogDto);
     } catch (error) {
       throw new InternalServerErrorException();

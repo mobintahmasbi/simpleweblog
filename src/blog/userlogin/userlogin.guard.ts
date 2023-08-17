@@ -11,7 +11,8 @@ export class UserloginGuard implements CanActivate {
   canActivate(context: ExecutionContext,): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest()
 
-    const auth = request.headers?.authorization
+    const auth = request.headers.authorization
+    
     
     return this.authService.validateToken(auth);
   }
